@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analytics & Reports - SaMoSys</title>
+    <!-- Bootstrap and Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    
+    <!-- Your Custom Stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-light">
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar">
+        <div class="sidebar-header">
+                       <div class="logo-container d-flex align-items-center">
+                <img src="logo.jpg" alt="SaMoSys Logo" width="50" height="50" class="logo-icon">
+                <h5 class="ms-2">SaMoSys</h5>
+            </div>
+           <p class="small" style="color: white;">Maragondon, Cavite</p>
+        </div>
+
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <a class="nav-link" href="index.html">
+                    <i class="bi bi-house-fill"></i> Dashboard
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="activities.html">
+                    <i class="bi bi-images"></i> Activities
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="calendar.html">
+                    <i class="bi bi-calendar-event"></i> Calendar
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="forms.html">
+                    <i class="bi bi-clipboard-check"></i> Inspection Form
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="reports.html">
+                    <i class="bi bi-bar-chart"></i> Analytics & Reports
+                </a>
+            </li>
+        </ul>
+        <div class="sidebar-footer mt-auto">
+             <a href="login.html" class="nav-link" id="logout-button">
+                <i class="bi bi-box-arrow-left"></i> Logout
+            </a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Header -->
+        <header class="header-section">
+            <div class="container-fluid">
+                <div class="row align-items-center">
+                    <div class="col-md-8">
+                        <h1 class="page-title">Analytics & Reports</h1>
+                    <p class="mb-0" style="color: white;">Data-driven sanitation insights</p>
+
+                    </div>
+                    <div class="col-md-4 text-end">
+                        <button class="btn btn-light" onclick="exportReport()">
+                            <i class="bi bi-download"></i> Export Report
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-section">
+            <div class="container-fluid">
+                <!-- Filter Section -->
+                <div class="row mb-4">
+                    <div class="col-md-3">
+                        <label class="form-label">Date Range</label>
+                        <select class="form-select" id="date-range">
+                            <option value="7">Last 7 Days</option>
+                            <option value="30" selected>Last 30 Days</option>
+                            <option value="90">Last 90 Days</option>
+                            <option value="365">Last Year</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="form-label">Inspection Type</label>
+                        <select class="form-select" id="inspection-type">
+                            <option value="">All Types</option>
+                            <option value="water">Water Station</option>
+                            <option value="food">Food Establishment</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="form-label">Barangay</label>
+                        <select class="form-select" id="barangay-filter">
+                            <option value="">All Barangays</option>
+                            <option value="Poblacion">Poblacion</option>
+                            <option value="Mahabang Parang">Mahabang Parang</option>
+                            <option value="Paliparan">Paliparan</option>
+                            <option value="Burol">Burol</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="form-label">&nbsp;</label>
+                        <button class="btn btn-success w-100" id="apply-filters-btn">
+                            <i class="bi bi-funnel"></i> Apply Filters
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Key Metrics -->
+                <div class="row mb-4">
+                    <div class="col-md-3">
+                        <div class="metric-card">
+                            <div class="metric-icon bg-success-light">
+                                <i class="bi bi-check-circle"></i>
+                            </div>
+                            <div class="metric-content">
+                                <h6 class="text-dark-emphasis">Total Inspections</h6>
+                                <h3 class="metric-number" id="total-inspections">0</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="metric-card">
+                            <div class="metric-icon bg-info-light">
+                                <i class="bi bi-percent"></i>
+                            </div>
+                            <div class="metric-content">
+                                <h6 class="text-dark-emphasis">Compliance Rate</h6>
+                                <h3 class="metric-number" id="compliance-rate">0%</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="metric-card">
+                            <div class="metric-icon bg-warning-light">
+                                <i class="bi bi-exclamation-circle"></i>
+                            </div>
+                            <div class="metric-content">
+                                <h6 class="text-dark-emphasis">Pending Corrections</h6>
+                                <h3 class="metric-number" id="pending-corrections">0</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="metric-card">
+                            <div class="metric-icon bg-danger-light">
+                                <i class="bi bi-lightning"></i>
+                            </div>
+                            <div class="metric-content">
+                                <h6 class="text-dark-emphasis">Critical Issues</h6>
+                                <h3 class="metric-number" id="critical-issues">0</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Charts Row -->
+                <div class="row mb-4">
+                    <div class="col-lg-6">
+                        <div class="card border-0 shadow-sm">
+                            <div class="card-header bg-white border-bottom">
+                                <h5 class="mb-0"><i class="bi bi-pie-chart text-success"></i> Inspection Status Distribution</h5>
+                            </div>
+                            <div class="card-body">
+                                <canvas id="statusChart" height="300"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="card border-0 shadow-sm">
+                            <div class="card-header bg-white border-bottom">
+                                <h5 class="mb-0"><i class="bi bi-bar-chart text-success"></i> Inspections by Type</h5>
+                            </div>
+                            <div class="card-body">
+                                <canvas id="typeChart" height="300"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Trend Chart -->
+                <div class="row mb-4">
+                    <div class="col-12">
+                        <div class="card border-0 shadow-sm">
+                            <div class="card-header bg-white border-bottom">
+                                <h5 class="mb-0"><i class="bi bi-graph-up text-success"></i> Inspection Trends</h5>
+                            </div>
+                            <div class="card-body">
+                                <canvas id="trendChart" height="100"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Detailed Records Table -->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card border-0 shadow-sm">
+                            <div class="card-header bg-white border-bottom">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <h5 class="mb-0"><i class="bi bi-table text-success"></i> Inspection Records</h5>
+                                    <input type="search" id="records-search" class="form-control" style="width: 250px" placeholder="Search records...">
+                                </div>
+                            </div>
+                            <div class="card-body p-0">
+                                <div class="table-responsive">
+                                    <table class="table table-hover mb-0">
+                                        <thead class="table-light">
+                                            <tr>
+                                                <th>Date</th>
+                                                <th>Establishment</th>
+                                                <th>Type</th>
+                                                <th>Inspector</th>
+                                                <th>Rating %</th>
+                                                <th>Status</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="records-body">
+                                            <!-- Populated by JavaScript -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

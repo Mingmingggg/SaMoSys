@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SaMoSys - Sanitation Monitoring System | Maragondon, Cavite</title>
+    <!-- Bootstrap and Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    
+    <!-- Your Custom Stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-light">
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar">
+        <div class="sidebar-header">
+            <div class="logo-container d-flex align-items-center">
+                <img src="logo.jpg" alt="SaMoSys Logo" width="50" height="50" class="logo-icon">
+                <h5 class="ms-2">SaMoSys</h5>
+            </div>
+
+            <p class="small" style="color: white;">Maragondon, Cavite</p>
+
+        </div>
+
+
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <a class="nav-link active" href="index.html">
+                    <i class="bi bi-house-fill"></i> Dashboard
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="activities.html">
+                    <i class="bi bi-images"></i> Activities
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="calendar.html">
+                    <i class="bi bi-calendar-event"></i> Calendar
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="forms.html">
+                    <i class="bi bi-clipboard-check"></i> Inspection Form
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="reports.html">
+                    <i class="bi bi-bar-chart"></i> Analytics & Reports
+                </a>
+            </li>
+        </ul>
+        <div class="sidebar-footer mt-auto">
+             <a href="login.html" class="nav-link" id="logout-button">
+                <i class="bi bi-box-arrow-left"></i> Logout
+            </a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Header -->
+        <header class="header-section">
+            <div class="container-fluid">
+                <div class="row align-items-center">
+                    <div class="col-md-8">
+                        <h1 class="page-title">Dashboard</h1>
+                        <p class="mb-0" style="color: white;">Sanitation Monitoring System - Maragondon, Cavite</p>
+
+                    </div>
+                    <div class="col-md-4 text-end">
+                        <div class="date-time">
+                            <p id="current-date-time" class="mb-0"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Dashboard Content -->
+        <main class="main-section">
+            <div class="container-fluid">
+                <!-- Statistics Row -->
+                <div class="row mb-4">
+                    <div class="col-md-3 mb-3">
+                        <div class="stat-card">
+                            <div class="stat-icon bg-success-light">
+                                <i class="bi bi-check-circle"></i>
+                            </div>
+                            <div class="stat-content">
+                                <h6 class="text-dark-emphasis">Excellent Status</h6>
+                                <h3 class="stat-number">24</h3>
+                                <p class="small text-success mb-0"><i class="bi bi-arrow-up"></i> +5 this month</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <div class="stat-card">
+                            <div class="stat-icon bg-info-light">
+                                <i class="bi bi-exclamation-circle"></i>
+                            </div>
+                            <div class="stat-content">
+                                <h6 class="text-dark-emphasis">Very Satisfactory</h6>
+                                <h3 class="stat-number">18</h3>
+                                <p class="small text-info mb-0"><i class="bi bi-dash"></i> No change</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <div class="stat-card">
+                            <div class="stat-icon bg-warning-light">
+                                <i class="bi bi-alert-triangle"></i>
+                            </div>
+                            <div class="stat-content">
+                                <h6 class="text-dark-emphasis">Satisfactory</h6>
+                                <h3 class="stat-number">12</h3>
+                                <p class="small text-warning mb-0"><i class="bi bi-arrow-down"></i> -2 this month</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <div class="stat-card">
+                            <div class="stat-icon bg-danger-light">
+                                <i class="bi bi-x-circle"></i>
+                            </div>
+                            <div class="stat-content">
+                                <h6 class="text-dark-emphasis">Need Inspection</h6>
+                                <h3 class="stat-number">8</h3>
+                                <p class="small text-danger mb-0"><i class="bi bi-arrow-up"></i> +3 pending</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Announcements Section -->
+                <div class="row mb-4">
+                    <div class="col-md-8">
+                        <div class="card border-0 shadow-sm">
+                            <div class="card-header bg-white border-bottom">
+                                <h5 class="mb-0"><i class="bi bi-megaphone text-success"></i> Announcements</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="announcement-item">
+                                    <div class="announcement-date">Today</div>
+                                    <h6>Water Quality Inspection Alert</h6>
+                                    <p>All water refilling stations in Barangay Poblacion are scheduled for microbiological analysis this week. Please ensure all stations are accessible.</p>
+                                </div>
+                                <hr>
+                                <div class="announcement-item">
+                                    <div class="announcement-date">Yesterday</div>
+                                    <h6>Food Establishment Compliance Update</h6>
+                                    <p>12 establishments passed their recent sanitary inspections. Certificates of compliance have been issued.</p>
+                                </div>
+                                <hr>
+                                <div class="announcement-item">
+                                    <div class="announcement-date">2 days ago</div>
+                                    <h6>Monsoon Season Preparedness</h6>
+                                    <p>Additional sanitation protocols are now in effect due to incoming rainy season. All barangay coordinators must review updated guidelines.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Reminders Section -->
+                    <div class="col-md-4">
+                        <div class="card border-0 shadow-sm">
+                            <div class="card-header bg-white border-bottom">
+                                <h5 class="mb-0"><i class="bi bi-bell text-success"></i> Reminders</h5>
+                            </div>
+                            <div class="card-body p-0">
+                                <div class="reminder-item">
+                                    <div class="reminder-indicator high"></div>
+                                    <div class="reminder-content">
+                                        <strong>High Priority</strong>
+                                        <p>Follow-up inspection at Joya Water Station</p>
+                                        <small class="text-dark-emphasis">Today, 2:00 PM</small>
+                                    </div>
+                                </div>
+                                <div class="reminder-item">
+                                    <div class="reminder-indicator medium"></div>
+                                    <div class="reminder-content">
+                                        <strong>Medium Priority</strong>
+                                        <p>Collect water samples for testing</p>
+                                        <small class="text-dark-emphasis">Tomorrow, 10:00 AM</small>
+                                    </div>
+                                </div>
+                                <div class="reminder-item">
+                                    <div class="reminder-indicator low"></div>
+                                    <div class="reminder-content">
+                                        <strong>Low Priority</strong>
+                                        <p>Monthly report submission deadline</p>
+                                        <small class="text-dark-emphasis">Friday, 5:00 PM</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Charts Row -->
+                <div class="row mb-4">
+                    <div class="col-md-6">
+                        <div class="card border-0 shadow-sm">
+                            <div class="card-header bg-white border-bottom">
+                                <h5 class="mb-0"><i class="bi bi-pie-chart text-success"></i> Sanitation Status Distribution</h5>
+                            </div>
+                            <div class="card-body">
+                                <canvas id="sanitationChart" height="300"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card border-0 shadow-sm">
+                            <div class="card-header bg-white border-bottom">
+                                <h5 class="mb-0"><i class="bi bi-graph-up text-success"></i> Water Quality Trend</h5>
+                            </div>
+                            <div class="card-body">
+                                <canvas id="waterQualityChart" height="300"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Inspections Table -->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card border-0 shadow-sm">
+                            <div class="card-header bg-white border-bottom">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <h5 class="mb-0"><i class="bi bi-list-check text-success"></i> Recent Inspections</h5>
+                                    <a href="reports.html" class="btn btn-sm btn-outline-success">View All</a>
+                                </div>
+                            </div>
+                            <div class="card-body p-0">
+                                <div class="table-responsive">
+                                    <table class="table table-hover mb-0">
+                                        <thead class="table-light">
+                                            <tr>
+                                                <th>Establishment</th>
+                                                <th>Type</th>
+                                                <th>Date</th>
+                                                <th>Rating</th>
+                                                <th>Status</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="recent-inspections-body">
+                                            <!-- Populated by JavaScript -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

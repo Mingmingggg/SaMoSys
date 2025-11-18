@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - SaMoSys</title>
+    <!-- Bootstrap and Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    
+    <!-- Your Custom Stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-light">
+
+    <!-- Login/Signup Container -->
+    <div class="login-container">
+        <div class="login-card">
+            <!-- Logo Header -->
+            <div class="sidebar-header text-center mb-4">
+            <div class="logo-container d-flex align-items-center">
+                <img src="logo.jpg" alt="SaMoSys Logo" width="150" height="150" class="logo-icon d-block mx-auto">
+
+            </div>
+                <p class="small text-dark mt-2">Sanitation Monitoring System</p>
+            </div>
+
+            <!-- Login Form -->
+            <form id="login-form">
+                <h4 class="text-center mb-4">Welcome Back</h4>
+                <div id="login-alert" class="alert alert-danger d-none" role="alert">
+                    Invalid username or password.
+                </div>
+                <div class="mb-3">
+                    <label for="login-username" class="form-label">Username</label>
+                    <input type="text" class="form-control" id="login-username" required>
+                </div>
+                <div class="mb-3">
+                    <label for="login-password" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="login-password" required>
+                </div>
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-success">Login</button>
+                </div>
+                <p class="text-center small mt-3">
+                    Don't have an account? <a href="#" id="show-signup">Sign Up</a>
+                </p>
+            </form>
+
+            <!-- Signup Form (Hidden) -->
+            <form id="signup-form" class="d-none">
+                <h4 class="text-center mb-4">Create Account</h4>
+                <div id="signup-alert" class="alert alert-danger d-none" role="alert">
+                    Username already exists.
+                </div>
+                <div class="mb-3">
+                    <label for="signup-username" class="form-label">Username</label>
+                    <input type="text" class="form-control" id="signup-username" required>
+                </div>
+                <div class="mb-3">
+                    <label for="signup-password" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="signup-password" required>
+                </div>
+                <div class="mb-3">
+                    <label for="signup-inspector" class="form-label">Full Name (Inspector)</label>
+                    <input type="text" class="form-control" id="signup-inspector" required>
+                </div>
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-success">Sign Up</button>
+                </div>
+                <p class="text-center small mt-3">
+                    Already have an account? <a href="#" id="show-login">Login</a>
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
